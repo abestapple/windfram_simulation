@@ -1,6 +1,6 @@
 # 风电场在线模拟计算程序 windfram_simulation
 采用streamlit库实现了风电场计算程序的在线使用。
-[地址](https://abestapple-windfram-simulation-app-snatpw.streamlit.app/)
+[使用地址](https://abestapple-windfram-simulation-app-snatpw.streamlit.app/)
 
 ## 已实现功能
 1. 单风向/单风速数据下的风电场尾流计算。
