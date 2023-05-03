@@ -9,9 +9,9 @@
 4. 支持风力机功率曲线的用户自定义。
 5. 支持风电场范围、分辨率的自定义。
 6. 已加入基于Guass的尾流模型和Park等四种尾流模型，后续计划加入更多的尾流模型可供选择。
+7. 叠加尾流模型有两种模型可供选择。
 ## 注意： 
-1. 对于叠加尾流模型，此程序默认采用了线性尾流叠加模型，其他叠加模型不可选择。
-2. 多核并行计算是未来考虑加入的功能。
+1. 多核并行计算是未来考虑加入的功能。
 ![风场模拟结果](https://github.com/abestapple/windfram_simulation/blob/main/simulation_result.png)
 ![风场模拟结果](https://github.com/abestapple/windfram_simulation/blob/main/SM.png)
 ![风场模拟结果](https://github.com/abestapple/windfram_simulation/blob/main/result1.png)
