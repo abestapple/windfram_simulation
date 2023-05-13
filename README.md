@@ -9,8 +9,8 @@
 4. 支持风力机功率曲线的用户自定义。
 5. 支持风电场范围、分辨率的自定义。
 6. 已加入基于Guass的尾流模型和Park等多种尾流模型。
-  (1) Gauss_Bastankhah
-  (2) guass_XA
+  - Gauss_Bastankhah
+  - guass_XA
   (3) GaussGe
   (4) Park
   (5) Modified_Park
