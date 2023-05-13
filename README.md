@@ -19,7 +19,7 @@
   - Bastankhah_yaw (paper:Experimental and theoretical study of wind turbine wakes in yawed conditions) 
   - QianIshihara (paper:Wind farm power maximization through wake steering with a new multiple wake model for prediction of turbulence intensity)
 ![结果](https://github.com/abestapple/windfram_simulation/blob/main/image/single_wake_velocity.png)
-##注意！ 当计算偏航尾流时,请采用Bastankhah_yaw QianIshihara这两种尾流模型。
+## 注意！ 当计算偏航尾流时,请采用Bastankhah_yaw QianIshihara这两种尾流模型。
 7. 偏转（偏航）尾流模型可供选择有：
   - Bastankhah_yaw (paper:Experimental and theoretical study of wind turbine wakes in yawed conditions)
   - Jimenez
