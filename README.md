@@ -11,23 +11,23 @@
 6. 已加入基于Guass的尾流模型和Park等多种尾流模型。
   - Gauss_Bastankhah
   - guass_XA
-  (3) GaussGe
-  (4) Park
-  (5) Modified_Park
-  (6) Larsen
-  (7) Frandsen
-  (8) Bastankhah_yaw (paper:Experimental and theoretical study of wind turbine wakes in yawed conditions) 
-  (9) QianIshihara (paper:Wind farm power maximization through wake steering with a new multiple wake model for prediction of turbulence intensity)
+  - GaussGe
+  - Park
+  - Modified_Park
+  - Larsen
+  - Frandsen
+  - Bastankhah_yaw (paper:Experimental and theoretical study of wind turbine wakes in yawed conditions) 
+  - QianIshihara (paper:Wind farm power maximization through wake steering with a new multiple wake model for prediction of turbulence intensity)
 ![结果](https://github.com/abestapple/windfram_simulation/blob/main/image/single_wake_velocity.png)
 当计算偏航尾流时,请采用Bastankhah_yaw QianIshihara这两种尾流模型。
 7. 偏转（偏航）尾流模型可供选择有：
-  (1) Bastankhah_yaw (paper:Experimental and theoretical study of wind turbine wakes in yawed conditions)
-  (2) Jimenez
-  (3) Qian_Ishihara (paper:Wind farm power maximization through wake steering with a new multiple wake model for prediction of turbulence intensity)
+  - Bastankhah_yaw (paper:Experimental and theoretical study of wind turbine wakes in yawed conditions)
+  - Jimenez
+  - Qian_Ishihara (paper:Wind farm power maximization through wake steering with a new multiple wake model for prediction of turbulence intensity)
 ![速度场结果](https://github.com/abestapple/windfram_simulation/blob/main/image/yaw_single_wake_velocity.png)
 ![湍流场结果](https://github.com/abestapple/windfram_simulation/blob/main/image/yaw_single_wake_ti.png)
 8. 湍流模型：
-  (1) Qian_Ishihara_turbulent_model (paper:Wind farm power maximization through wake steering with a new multiple wake model for prediction of turbulence intensity)
+  - Qian_Ishihara_turbulent_model (paper:Wind farm power maximization through wake steering with a new multiple wake model for prediction of turbulence intensity)
 ![结果](https://github.com/abestapple/windfram_simulation/blob/main/image/single_wake_ti.png)
 9. 叠加模型有LinearSum和SquaredSum两种模型可供选择。
 ## 风场模拟： 
