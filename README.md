@@ -18,16 +18,19 @@
   (7) Frandsen
   (8) Bastankhah_yaw (paper:Experimental and theoretical study of wind turbine wakes in yawed conditions) 
   (9) QianIshihara (paper:Wind farm power maximization through wake steering with a new multiple wake model for prediction of turbulence intensity)
+![结果](https://github.com/abestapple/windfram_simulation/blob/main/image/single_wake_velocity.png)
 当计算偏航尾流时,请采用Bastankhah_yaw QianIshihara这两种尾流模型。
 7. 偏转（偏航）尾流模型可供选择有：
   (1) Bastankhah_yaw (paper:Experimental and theoretical study of wind turbine wakes in yawed conditions)
   (2) Jimenez
   (3) Qian_Ishihara (paper:Wind farm power maximization through wake steering with a new multiple wake model for prediction of turbulence intensity)
+![速度场结果](https://github.com/abestapple/windfram_simulation/blob/main/image/yaw_single_wake_velocity.png)
+![湍流场结果](https://github.com/abestapple/windfram_simulation/blob/main/image/yaw_single_wake_ti.png)
 8. 湍流模型：
   (1) Qian_Ishihara_turbulent_model (paper:Wind farm power maximization through wake steering with a new multiple wake model for prediction of turbulence intensity)
+![结果](https://github.com/abestapple/windfram_simulation/blob/main/image/single_wake_ti.png)
 9. 叠加模型有LinearSum和SquaredSum两种模型可供选择。
 ## 注意： 
 1. 多核并行计算是未来考虑加入的功能。
-![风场模拟结果](https://github.com/abestapple/windfram_simulation/blob/main/simulation_result.png)
-![风场模拟结果](https://github.com/abestapple/windfram_simulation/blob/main/SM.png)
-![风场模拟结果](https://github.com/abestapple/windfram_simulation/blob/main/result1.png)
+![风场模拟结果](https://github.com/abestapple/windfram_simulation/blob/main/image/windfarm_vel.png)
+![风场模拟结果](https://github.com/abestapple/windfram_simulation/blob/main/image/windfarm_ti.png)
