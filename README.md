@@ -30,7 +30,6 @@
   (1) Qian_Ishihara_turbulent_model (paper:Wind farm power maximization through wake steering with a new multiple wake model for prediction of turbulence intensity)
 ![结果](https://github.com/abestapple/windfram_simulation/blob/main/image/single_wake_ti.png)
 9. 叠加模型有LinearSum和SquaredSum两种模型可供选择。
-## 注意： 
-1. 多核并行计算是未来考虑加入的功能。
+## 风场模拟： 
 ![风场模拟结果](https://github.com/abestapple/windfram_simulation/blob/main/image/windfarm_vel.png)
 ![风场模拟结果](https://github.com/abestapple/windfram_simulation/blob/main/image/windfarm_ti.png)
