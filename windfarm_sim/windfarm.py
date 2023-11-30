@@ -18,7 +18,6 @@ def wind_farm(flowfield,mesh,turbine_sites,direction,D,hub,ct,yaw_,wake_model,su
         ix=mesh.find_y(mesh.x[0,:],[tx])[0]
         iy=mesh.find_y(mesh.y[:,0],[ty])[0]
         u=flowfield.flow[iy,ix]
-        ku=flow_init[iy,ix]
         Ia=flowfield.ti_flow[iy,ix]
         dirct=direction-yaw[i]
         kc,bc=Center(tx,ty,direction)
@@ -42,7 +41,7 @@ def wind_farm(flowfield,mesh,turbine_sites,direction,D,hub,ct,yaw_,wake_model,su
         wake_index=(down_index[0][inddd],down_index[1][inddd])
         wake_deficit_temp=np.zeros([mesh.x.shape[0],mesh.x.shape[1]])
         wake_ti_deficit_temp=np.zeros([mesh.x.shape[0],mesh.x.shape[1]])
-        wake_flow=model.deficit_(xc1,r1,hub[i])+u-ku
+        wake_flow=model.deficit_(xc1,r1,hub[i])
 
         wake_flow_ti=ti_model.ti_deficit_(xc1,r1)
         wake_deficit_temp[wake_index]=wake_deficit_temp[wake_index]+wake_flow
@@ -78,7 +77,6 @@ def wind_farm_powercurver(flowfield,mesh,turbine_sites,direction,D,hub,wtg_file,
         ix=mesh.find_y(mesh.x[0,:],[tx])[0]
         iy=mesh.find_y(mesh.y[:,0],[ty])[0]
         u=flowfield.flow[iy,ix]
-        ku=flow_init[iy,ix]
         Ia=flowfield.ti_flow[iy,ix]
         dirct=direction-yaw[i]
         p,ct=Get_pct(ws,ps,cts,u)
@@ -103,7 +101,7 @@ def wind_farm_powercurver(flowfield,mesh,turbine_sites,direction,D,hub,wtg_file,
         wake_index=(down_index[0][inddd],down_index[1][inddd])
         wake_deficit_temp=np.zeros([mesh.x.shape[0],mesh.x.shape[1]])
         wake_ti_deficit_temp=np.zeros([mesh.x.shape[0],mesh.x.shape[1]])
-        wake_flow=model.deficit_(xc1,r1,hub[i])+u-ku
+        wake_flow=model.deficit_(xc1,r1,hub[i])
         wake_flow_ti=ti_model.ti_deficit_(xc1,r1)
         wake_deficit_temp[wake_index]=wake_deficit_temp[wake_index]+wake_flow
         wake_ti_deficit_temp[wake_index]=wake_ti_deficit_temp[wake_index]+wake_flow_ti
