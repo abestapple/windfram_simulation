@@ -416,7 +416,7 @@ if optionflow=="单风速/风向":
 		st.pyplot(fig,use_container_width=False)
 	with tab2:
 		st.pyplot(fig1,use_container_width=False)
-	if option not in ["Modified_Park","Park","Frandsen"]:
+	if option not in ["Modified_Park","Park","Frandsen","Jensen"]:
 		C1, C2= st.columns(2)
 		with C1:
 			options = st.multiselect(
