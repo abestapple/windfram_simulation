@@ -69,7 +69,27 @@ class guass_Ge():
         return wake
     def wake_expansion(self,x):
         return self.k*x+self.D/2+self.D/4
-
+        
+class Jensen():
+    def __init__(self,u,D,Hub,ct,Ia,yaw,deflectionmodel,k=0.075):
+        self.u=u
+        self.D=D
+        self.ct=np.minimum(0.999, ct)
+        self.k=k
+        self.Hub=Hub
+    def deficit_(self,x,r,h):
+        """
+        Park_wake_model;
+        """
+        r=abs(r)
+        R=self.D/2
+        a=self.k*x+R
+        wake=-self.u*2/3*(R/(R+self.k*x))
+        #wake[r>a]=0
+        return wake
+    def wake_expansion(self,x):
+        return self.k*x+self.D/2
+        
 class Park():
     def __init__(self,u,D,Hub,ct,Ia,yaw,deflectionmodel,k=0.075):
         self.u=u
