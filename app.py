@@ -419,7 +419,7 @@ if optionflow=="单风速/风向":
 		fig,fig1=Creat_powercurver(nx,ny,dx,dy,velocity,direction,Ti,turbine_sites,D,Hhub,power_curver,yaw,wakemodel,superpositionModel,DeflectionModel,turbulentmodel)
 	#vert_space = '<div style="margin: 0 1000px 100px 100px;"></div>'
 	#st.markdown(vert_space, unsafe_allow_html=True)
-	tab1, tab2 = st.tabs(["Velocity", "Turbulent"])
+	tab1, tab2 = st.tabs(["Velocity field", "Turbulent field"])
 	with tab1:
 		st.pyplot(fig,use_container_width=False)
 	with tab2:
