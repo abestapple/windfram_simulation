@@ -11,7 +11,7 @@ import plotly.graph_objs as go
 
 from windfarm_sim.windfarm import wind_farm,wind_farm_powercurver,VPCT_Turbines,Timeseries_windfarm,VPCT_Turbines_ct
 from windfarm_sim.Field import Mesh,Flowfield
-from windfarm_sim.wake_deficit import guass_Bastankhah,guass_Ge,Jensen,Park,Modified_Park,Larsen,Frandsen,guass_XA,Bastankhah_yaw,QianIshihara,Jensen_Gauss,Park_Gauss,Jensen_2D_k,Gauss
+from windfarm_sim.wake_deficit import Bastankhah,guass_Ge,Jensen,Park,Modified_Park,Larsen,Frandsen,guass_XA,Bastankhah_yaw,QianIshihara,Jensen_Gauss,Park_Gauss,Jensen_2D_k,Gauss
 from windfarm_sim.superposition import LinearSum,SquaredSum
 from windfarm_sim.turbulent_model import Qian_Ishihara_turbulent_model
 from windfarm_sim.deflectionModel import guass_Bastankhah_yaw,Jimenez,Qian_Ishihara
@@ -175,7 +175,7 @@ with st.sidebar:
 			if option=="GaussGe":
 				wakemodel=guass_Ge
 			if option=="Bastankhah_guass":
-				wakemodel=guass_Bastankhah
+				wakemodel=Bastankhah
 			if option=="Jensen":
 				wakemodel=Jensen
 			if option=="Park":
