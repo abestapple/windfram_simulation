@@ -21,7 +21,7 @@ class Bastankhah():
         wake=-self.u*(1-np.sqrt(1-self.ct/8/a))*np.exp(-1/2/a*(r*r/self.D/self.D))
         return wake
     def wake_expansion(self,x):
-        return self.k*x+0.2*np.sqrt(self.Beta())*self.D
+        return self.k*x+0.5*np.sqrt(self.Beta())*self.D
 
 class Gauss():
     def __init__(self,u,D,Hub,ct,Ia,yaw,deflectionmodel,k=0.04):
