@@ -1,7 +1,7 @@
 import numpy as np
 
-class guass_Bastankhah():
-    def __init__(self,u,D,Hub,ct,Ia,yaw,deflectionmodel,k=0.07):
+class Bastankhah():
+    def __init__(self,u,D,Hub,ct,Ia,yaw,deflectionmodel,k=0.04):
         self.u=u
         self.D=D
         self.ct=np.minimum(0.999, ct)
@@ -21,10 +21,32 @@ class guass_Bastankhah():
         wake=-self.u*(1-np.sqrt(1-self.ct/8/a))*np.exp(-1/2/a*(r*r/self.D/self.D))
         return wake
     def wake_expansion(self,x):
-        return self.k*x+0.2*np.sqrt(self.Beta())*self.D+self.D/2
+        return self.k*x+0.2*np.sqrt(self.Beta())*self.D
+
+class Gauss():
+    def __init__(self,u,D,Hub,ct,Ia,yaw,deflectionmodel,k=0.04):
+        self.u=u
+        self.D=D
+        self.ct=np.minimum(0.999, ct)
+        self.k=k
+        self.Hub=Hub
+    def deficit_(self,x,r,h):
+
+        conts=1.02**2
+        beta=0.6
+        r=abs(r)
+        R=self.D/2
+        epart1=np.exp(-beta*x/self.D)
+        epart2=-2*conts*r**2/((1+2*self.k*x/self.D)**2*self.D**2)
+        f=1-(1-np.sqrt(1-self.ct))*(R/(R+self.k*x))**2
+        wake=-0.5*self.u*conts*(1-(1-epart1)*f)*np.exp(epart2)
+
+        return wake
+    def wake_expansion(self,x):
+        return self.k*x+self.D
 
 class guass_XA():
-    def __init__(self,u,D,Hub,ct,Ia,yaw,deflectionmodel,k=0.07):
+    def __init__(self,u,D,Hub,ct,Ia,yaw,deflectionmodel,k=0.04):
         self.u=u
         self.D=D
         self.ct=np.minimum(0.999, ct)
@@ -49,7 +71,7 @@ class guass_XA():
         return 0.025*x+0.25*np.sqrt(self.Beta())*self.D+self.D/2
 
 class guass_Ge():
-    def __init__(self,u,D,Hub,ct,Ia,yaw,deflectionmodel,k=0.075):
+    def __init__(self,u,D,Hub,ct,Ia,yaw,deflectionmodel,k=0.04):
         self.u=u
         self.D=D
         self.ct=np.minimum(0.999, ct)
@@ -69,9 +91,9 @@ class guass_Ge():
         return wake
     def wake_expansion(self,x):
         return self.k*x+self.D/2+self.D/4
-        
+
 class Jensen():
-    def __init__(self,u,D,Hub,ct,Ia,yaw,deflectionmodel,k=0.075):
+    def __init__(self,u,D,Hub,ct,Ia,yaw,deflectionmodel,k=0.04):
         self.u=u
         self.D=D
         self.ct=np.minimum(0.999, ct)
@@ -89,9 +111,9 @@ class Jensen():
         return wake
     def wake_expansion(self,x):
         return self.k*x+self.D/2
-        
+
 class Park():
-    def __init__(self,u,D,Hub,ct,Ia,yaw,deflectionmodel,k=0.075):
+    def __init__(self,u,D,Hub,ct,Ia,yaw,deflectionmodel,k=0.04):
         self.u=u
         self.D=D
         self.ct=np.minimum(0.999, ct)
@@ -104,14 +126,15 @@ class Park():
         r=abs(r)
         R=self.D/2
         a=self.k*x+R
-        wake=-self.u*(1-np.sqrt(1-self.ct))*(R/(R+self.k*x))**2
+        wake=-self.u*(1-np.sqrt(1-self.ct))*(
+            R/(R+self.k*x))**2
         #wake[r>a]=0
         return wake
     def wake_expansion(self,x):
         return self.k*x+self.D/2
 
 class Modified_Park():
-    def __init__(self,u,D,Hub,ct,Ia,yaw,deflectionmodel,k=0.075):
+    def __init__(self,u,D,Hub,ct,Ia,yaw,deflectionmodel,k=0.04):
         self.u=u
         self.D=D
         self.ct=np.minimum(0.999, ct)
@@ -130,8 +153,97 @@ class Modified_Park():
     def wake_expansion(self,x):
         return self.k*x+self.D/2
 
+class Jensen_Gauss():
+    def __init__(self,u,D,Hub,ct,Ia,yaw,deflectionmodel,k=0.04):
+        self.u=u
+        self.D=D
+        self.ct=np.minimum(0.999, ct)
+        self.k=k
+        self.Hub=Hub
+        self.Ia=Ia
+    def constan_(self,x):
+        kn=0.4
+        self.Iwake=(kn*self.ct/(x/self.D)**0.5+self.Ia**0.5)**2
+        self.a=0.5-0.5*np.sqrt(1-self.ct)  
+        if self.Ia<=0:
+            self.kwake=self.k
+        else:
+            self.kwake=self.k*self.Iwake/self.Ia   
+        self.R=self.D/2   
+    def deficit_(self,x,r,h):
+        """
+        Park_wake_model;
+        """
+        self.constan_(x)
+        Ustar=self.u*(1-2*self.a/(1+self.kwake*x/self.R)**2)
+        rx=self.kwake*x+self.R
+        epart=-r**2/(2*(rx/2.58)**2)
+        return -(self.u-Ustar)*5.16/np.sqrt(2*np.pi)*np.exp(epart)
+    def wake_expansion(self,x):
+        self.constan_(x)
+        return self.kwake*x+self.D/2
+
+class Park_Gauss():
+    def __init__(self,u,D,Hub,ct,Ia,yaw,deflectionmodel,k=0.04):
+        self.u=u
+        self.D=D
+        self.ct=np.minimum(0.999, ct)
+        self.k=k
+        self.Hub=Hub
+        self.Ia=Ia
+        self.constan_()
+    def constan_(self):
+        self.a=0.5-0.5*np.sqrt(1-self.ct)   
+        self.R=self.D/2   
+    def deficit_(self,x,r,h):
+        """
+        Park_wake_model;
+        """
+        rx=self.k*x+self.R
+        Ustar=self.u*(1-2*self.a/(1+self.k*x/self.R)**2)
+
+        epart=1-(r/rx)**2
+        return (self.u-Ustar)/(1-26*np.exp(1)/35)*(np.exp(epart)-1)
+    def wake_expansion(self,x):
+        return self.k*x+self.D/2
+
+class Jensen_2D_k():
+    def __init__(self,u,D,Hub,ct,Ia,yaw,deflectionmodel,k=0.04):
+        self.u=u
+        self.D=D
+        self.ct=np.minimum(0.999, ct)
+        self.k=k
+        self.Hub=Hub
+        self.Ia=Ia
+    def cosd(self,deg):
+        return np.cos(deg*np.pi/180)
+    def constan_(self,x):
+        self.a=0.5-0.5*np.sqrt(1-self.ct)   
+        self.R=self.D/2 
+        kn=0.4
+        self.Iwake=kn*self.ct/(x/self.D)+self.Ia 
+        if self.Ia<=0:
+            self.kwake=self.k
+        else:
+            self.kwake=self.k*self.Iwake/self.Ia   
+        self.R=self.D/2         
+        
+    def deficit_(self,x,r,h):
+        """
+        Park_wake_model;
+        """
+        self.constan_(x)
+        rx=self.kwake*x+self.R
+        r1=self.R*np.sqrt((1-self.a)/(1-2*self.a))
+        Ustar=self.u*(1-2*self.a/(1+self.kwake*x/self.R)**2)
+        #print(Ustar)
+        return (self.u-Ustar)*np.cos(np.pi*r/rx+np.pi)+Ustar-self.u
+    def wake_expansion(self,x):
+        self.constan_(x)
+        return self.kwake*x+self.D/2
+
 class Larsen():
-    def __init__(self,u,D,Hub,ct,Ia,yaw,deflectionmodel,k=0.075):
+    def __init__(self,u,D,Hub,ct,Ia,yaw,deflectionmodel,k=0.04):
         self.u=u
         self.D=D
         self.ct=np.minimum(0.999, ct)
@@ -160,7 +272,7 @@ class Larsen():
         return (105*self.C1**2/2/np.pi)**(1/5)*(self.ct*self.A*(x+self.x0))**(1/3)
 
 class Frandsen():
-    def __init__(self,u,D,Hub,ct,Ia,yaw,deflectionmodel,k=0.075):
+    def __init__(self,u,D,Hub,ct,Ia,yaw,deflectionmodel,k=0.04):
         self.u=u
         self.D=D
         self.ct=np.minimum(0.999, ct)
@@ -183,7 +295,7 @@ class Frandsen():
         return 0.5*self.D*(self.beta**(3/2)+0.7*(x/self.D))**(1/3)
 
 class Bastankhah_yaw():
-    def __init__(self,u,D,Hub,ct,Ia,yaw,deflectionmodel,k=0.075):
+    def __init__(self,u,D,Hub,ct,Ia,yaw,deflectionmodel,k=0.04):
         self.u=u
         self.D=D
         self.ct=np.minimum(0.999, ct)
@@ -274,7 +386,7 @@ class Bastankhah_yaw():
         return 0.025*x+self.D*20
 
 class QianIshihara():
-    def __init__(self,u,D,Hub,ct,Ia,yaw,deflectionmodel,k=0.075):
+    def __init__(self,u,D,Hub,ct,Ia,yaw,deflectionmodel,k=0.04):
         self.u=u
         self.D=D
         self.ct=np.minimum(0.999, ct)
