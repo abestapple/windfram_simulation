@@ -11,7 +11,7 @@ import plotly.graph_objs as go
 
 from windfarm_sim.windfarm import wind_farm,wind_farm_powercurver,VPCT_Turbines,Timeseries_windfarm,VPCT_Turbines_ct
 from windfarm_sim.Field import Mesh,Flowfield
-from windfarm_sim.wake_deficit import guass_Bastankhah,guass_Ge,Jensen,Park,Modified_Park,Larsen,Frandsen,guass_XA,Bastankhah_yaw,QianIshihara
+from windfarm_sim.wake_deficit import guass_Bastankhah,guass_Ge,Jensen,Park,Modified_Park,Larsen,Frandsen,guass_XA,Bastankhah_yaw,QianIshihara,Jensen_Gauss,Park_Gauss,Jensen_2D_k,Gauss
 from windfarm_sim.superposition import LinearSum,SquaredSum
 from windfarm_sim.turbulent_model import Qian_Ishihara_turbulent_model
 from windfarm_sim.deflectionModel import guass_Bastankhah_yaw,Jimenez,Qian_Ishihara
@@ -171,10 +171,10 @@ with st.sidebar:
 		with tab1:
 			option = st.selectbox(
 			'尾流模型',
-			('Bastankhah', 'guass_XA','GaussGe','Jensen','Park','Modified_Park','Larsen','Frandsen','Bastankhah_yaw','QianIshihara'))
+			('Bastankhah_guass','guass','guass_XA','GaussGe','Jensen','Jensen_2D_k','Jensen_Gauss','Park','Park_Gauss','Modified_Park','Larsen','Frandsen','Bastankhah_yaw','QianIshihara'))
 			if option=="GaussGe":
 				wakemodel=guass_Ge
-			if option=="Bastankhah":
+			if option=="Bastankhah_guass":
 				wakemodel=guass_Bastankhah
 			if option=="Jensen":
 				wakemodel=Jensen
@@ -192,6 +192,14 @@ with st.sidebar:
 				wakemodel=Bastankhah_yaw
 			if option=="QianIshihara":
 				wakemodel=QianIshihara
+			if option=="Gauss":
+				wakemodel=Gauss
+			if option=="Jensen_Gauss":
+				wakemodel=Jensen_Gauss
+			if option=="Park_Gauss":
+				wakemodel=Park_Gauss
+			if option=="Jensen_2D_k":
+				wakemodel=Jensen_2D_k
 			option_superpos = st.selectbox(
 			'叠加模型',
 			('LinearSum', 'SquaredSum'))
