@@ -7,3 +7,4 @@ streamlit-aggrid==0.3.4.post3
 xmltodict==0.13.0
 plotly==5.14.1
 hmac
+hashlib
