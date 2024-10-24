@@ -40,8 +40,9 @@ def check_password():
             		with col0:  
                 		st.write("  ")  
             		with col1:  
-                		st.image("login_logo.png",  width=35)  
+                		st.write("  ")
             		with col2:  
+				st.header(":blue[WINDFARM ANALYSIS]:")
                 		st.markdown("WINDFARM ANALYSIS")  
             		st.text_input("Username", key="username")  
             		st.text_input("Password", type="password", key="password")  
