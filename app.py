@@ -40,7 +40,7 @@ def check_password():
             		with col0:  
                 		st.write("  ")  
             		with col1:  
-                		st.image("login_logo.png",  width=75)  
+                		st.image("login_logo.png",  width=35)  
             		with col2:  
                 		st.markdown("WINDFARM ANALYSIS")  
             		st.text_input("Username", key="username")  
