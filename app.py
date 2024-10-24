@@ -17,9 +17,22 @@ from windfarm_sim.turbulent_model import Qian_Ishihara_turbulent_model
 from windfarm_sim.deflectionModel import guass_Bastankhah_yaw,Jimenez,Qian_Ishihara
 from windfarm_sim.utils_tool import plot_turbine
 from login import check_password
+
+st.set_page_config(page_title="风电场计算",layout="wide")
+
+st.markdown("""
+    <style>
+        .reportview-container {
+            margin-top: -2em;
+        }
+        #MainMenu {visibility: hidden;}
+        .stDeployButton {display:none;}
+        footer {visibility: hidden;}
+        #stDecoration {display:none;}
+    </style>
+""", unsafe_allow_html=True)
 if not check_password():  
     st.stop()
-st.set_page_config(page_title="风电场计算",layout="wide")
 
 
 st.title('风电场模拟计算')
