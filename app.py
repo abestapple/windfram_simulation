@@ -16,7 +16,9 @@ from windfarm_sim.superposition import LinearSum,SquaredSum
 from windfarm_sim.turbulent_model import Qian_Ishihara_turbulent_model
 from windfarm_sim.deflectionModel import guass_Bastankhah_yaw,Jimenez,Qian_Ishihara
 from windfarm_sim.utils_tool import plot_turbine
-
+from login import check_password
+if not check_password():  
+    st.stop()
 st.set_page_config(page_title="风电场计算",layout="wide")
 
 
