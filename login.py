@@ -1,6 +1,17 @@
 import hmac  
 import streamlit as st  
 def check_password(): 
+    st.markdown("""
+    <style>
+        .reportview-container {
+            margin-top: -2em;
+        }
+	.e8zbici0{visibility: hidden;}
+        #MainMenu {visibility: hidden;}
+        .stDeployButton {display:none;}
+        footer {visibility: hidden;}
+        #stDecoration {display:none;}
+    </style>""", unsafe_allow_html=True)
     def login_form(): 
         with st.form("Credentials"):  
             col0,col1, col2 = st.columns([0.6,0.4, 2])
