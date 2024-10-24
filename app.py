@@ -36,7 +36,7 @@ def check_password():
         col0,col1, col2 = st.columns([0.25,0.5,0.25]) 
         with col1: 
         	with st.form("Credentials"):  
-            		col0,col1, col2 = st.columns([0.6,0.4, 2])
+            		col0,col1, col2 = st.columns([0.2,0.2,0.6])
             		with col0:  
                 		st.write("  ")  
             		with col1:  
