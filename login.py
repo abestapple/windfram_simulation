@@ -1,6 +1,7 @@
 import hmac  
 import streamlit as st  
 def check_password(): 
+    st.set_page_config(page_title="风电场计算",layout="wide")
     st.markdown("""
     <style>
         .reportview-container {
