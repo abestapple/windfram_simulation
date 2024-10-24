@@ -41,9 +41,8 @@ def check_password():
                 		st.write("  ")  
             		with col1:  
                 		st.write("  ")
-            		with col2:  
-				st.header(":blue[WINDFARM ANALYSIS]:")
-                		st.markdown("WINDFARM ANALYSIS")  
+            		with col2:
+                		st.header(":blue[WINDFARM ANALYSIS]")  
             		st.text_input("Username", key="username")  
             		st.text_input("Password", type="password", key="password")  
             		# 将按钮靠右放置  
