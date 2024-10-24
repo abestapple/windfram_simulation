@@ -33,8 +33,8 @@ def check_password():
     </style>""", unsafe_allow_html=True)
     def login_form(): 
 	#st.set_page_config(page_title="风电场计算",layout="wide")
-	col0,col1, col2 = st.columns([0.25,0.5,0.25]) 
-	with col1: 
+        col0,col1, col2 = st.columns([0.25,0.5,0.25]) 
+        with col1: 
         	with st.form("Credentials"):  
             		col0,col1, col2 = st.columns([0.6,0.4, 2])
             		with col0:  
