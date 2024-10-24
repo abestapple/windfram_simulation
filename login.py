@@ -14,20 +14,22 @@ def check_password():
     </style>""", unsafe_allow_html=True)
     def login_form(): 
 	#st.set_page_config(page_title="风电场计算",layout="wide")
-        with st.form("Credentials"):  
-            col0,col1, col2 = st.columns([0.6,0.4, 2])
-            with col0:  
-                st.write("  ")  
-            with col1:  
-                st.image("login_logo.png",  width=75)  
-            with col2:  
-                st.markdown("WINDFARM ANALYSIS")  
-            st.text_input("Username", key="username")  
-            st.text_input("Password", type="password", key="password")  
-            # 将按钮靠右放置  
-            cols = st.columns([4, 1])  
-            cols[1].form_submit_button("Login", on_click=password_entered)  
-            # st.form_submit_button("登录", on_click=password_entered)   
+	col0,col1, col2 = st.columns([0.25,0.5,0.25]) 
+	with col1: 
+        	with st.form("Credentials"):  
+            		col0,col1, col2 = st.columns([0.6,0.4, 2])
+            		with col0:  
+                		st.write("  ")  
+            		with col1:  
+                		st.image("login_logo.png",  width=75)  
+            		with col2:  
+                		st.markdown("WINDFARM ANALYSIS")  
+            		st.text_input("Username", key="username")  
+            		st.text_input("Password", type="password", key="password")  
+            		# 将按钮靠右放置  
+            		cols = st.columns([4, 1])  
+            		cols[1].form_submit_button("Login", on_click=password_entered)  
+            		# st.form_submit_button("登录", on_click=password_entered)   
     def password_entered():  
         """Checks whether a password entered by the user is correct."""  
         if st.session_state["username"] in st.secrets[  
