@@ -36,13 +36,13 @@ def check_password():
         col0,col1, col2 = st.columns([0.25,0.5,0.25]) 
         with col1: 
         	with st.form("Credentials"):  
-            		col0,col1, col2 = st.columns([0.2,0.2,0.6])
+            		col0,col1, col2 = st.columns([0.2,0.6,0.2])
             		with col0:  
                 		st.write("  ")  
             		with col1:  
-                		st.write("  ")
+                		st.header(":blue[WINDFARM ANALYSIS]")
             		with col2:
-                		st.header(":blue[WINDFARM ANALYSIS]")  
+                		st.write("  ")    
             		st.text_input("Username", key="username")  
             		st.text_input("Password", type="password", key="password")  
             		# 将按钮靠右放置  
