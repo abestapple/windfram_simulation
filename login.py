@@ -13,15 +13,15 @@ def check_password():
         #stDecoration {display:none;}
     </style>""", unsafe_allow_html=True)
     def login_form(): 
+	st.set_page_config(page_title="login",layout="wide")
         with st.form("Credentials"):  
             col0,col1, col2 = st.columns([0.6,0.4, 2])
             with col0:  
                 st.write("  ")  
             with col1:  
-                #st.image("./utils/logo.png",  width=75)  
-                st.write("  ")
+                st.image("login_logo.png",  width=75)  
             with col2:  
-                st.markdown("## WINDFARM ANALYSIS")  
+                st.markdown("WINDFARM ANALYSIS")  
             st.text_input("Username", key="username")  
             st.text_input("Password", type="password", key="password")  
             # 将按钮靠右放置  
