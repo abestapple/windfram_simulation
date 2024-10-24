@@ -3,7 +3,7 @@ import streamlit as st
 def check_password(): 
     def login_form(): 
         with st.form("Credentials"):  
-            col0,col1, col2 = st.columns([0.6,0.4, 2],vertical_alignment="top")  
+            col0,col1, col2 = st.columns([0.6,0.4, 2])
             with col0:  
                 st.write("  ")  
             with col1:  
