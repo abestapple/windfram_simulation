@@ -21,7 +21,7 @@ st.set_page_config(page_title="风电场计算",layout="wide")
 
 
 st.title('风电场模拟计算')
-wtgfiles={"NREL5MW":"NREL-5MW.wtg","NREL15MW":"NREL-15MW.wtg","Vestas-V80":"Vestas-V80.wtg"}
+wtgfiles={"NREL5MW":"NREL-5MW.wtg","NREL15MW":"NREL-15MW.wtg","Vestas-V80":"Vestas-V80.wtg","H165-4.0MW_1.04":"H165-4.0MW_1.04.wtg","H165-4.0MW_1.225":"H165-4.0MW_1.225.wtg"}
 if 'wtgfiles' not in st.session_state:
 	st.session_state["wtgfiles"]=wtgfiles
 
