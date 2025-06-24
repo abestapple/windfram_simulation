@@ -46,7 +46,13 @@ class flex_gauss():
         wake=-(self.u-umin)*np.exp(-r**2/(2*(alpha_flex*(1+2*self.k*Dr)/(self.S/18.34))**2))
         return wake
     def wake_expansion(self,x):
-        return self.k*x+self.D*4
+        return self.k*x+self.D
+
+- (U_free - U_min) * np.exp(
+        -(y ** 2) / (2 * (sigma_flex * (1 + 2 * 0.35 * Dr) / 1 / exp_scale) ** 2)
+    )
+
+
 
 class Gauss():
     def __init__(self,u,D,Hub,ct,Ia,yaw,deflectionmodel,k=0.04):
