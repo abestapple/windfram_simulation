@@ -45,7 +45,7 @@ class flex_gauss():
         umin=self.u*(1-C)
         alpha_flex=self.alpha*(1-self.F)
         Dr=x/self.D
-        wake=-(self.u-umin)*np.exp(-r**2/(2*(alpha_flex*(1+2*self.k*x)/(self.S/18.34))**2))
+        wake=-(self.u-umin)*np.exp(-r**2/(2*(alpha_flex*(1+2*self.k*Dr)/(self.S/18.34))**2))
         return wake
     def wake_expansion(self,x):
         return self.k*x+self.D
