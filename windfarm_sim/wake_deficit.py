@@ -23,6 +23,34 @@ class Bastankhah():
     def wake_expansion(self,x):
         return self.k*x+0.5*np.sqrt(self.Beta())*self.D
 
+class flex_gauss():
+    def __init__(self,u,D,Hub,ct,Ia,yaw,deflectionmodel,k=0.04):
+        self.u=u
+        self.D=D
+        self.ct=np.minimum(0.999, ct)
+        self.k=k
+        self.Hub=Hub
+        self.F=0.8
+        self.alpha=1.0
+        self.c=0.5
+        self.S=1.0
+    def Beta(self):
+        return 0.5*(1+np.sqrt(1-self.ct))/(np.sqrt(1-self.ct))
+    def deficit_(self,x,r,h):
+        """
+         A new model for wind-turbine wakes from Dr.zhiyuan
+        """
+        r=abs(r)
+        C=self.c*(1-np.sqrt(1-self.ct))
+        umin=self.u*(1-C)
+        alpha_flex=self.alpha*(1-self.F)
+        Dr=x/self.D
+        a=(self.k*x/self.D+e)**2
+        wake=-(self.u-umin)*np.exp(-r**2/(2*(alpha_flex*(1+2*self.k*Dr)/(self.S/18.34))**2))
+        return wake
+    def wake_expansion(self,x):
+        return self.k*x+0.5*np.sqrt(self.Beta())*self.D
+
 class Gauss():
     def __init__(self,u,D,Hub,ct,Ia,yaw,deflectionmodel,k=0.04):
         self.u=u
