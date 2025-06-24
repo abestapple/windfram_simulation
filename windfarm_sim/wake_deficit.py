@@ -43,7 +43,7 @@ class flex_gauss():
         r=abs(r)/self.D
         C=self.c*(1-np.sqrt(1-self.ct))
         umin=self.u*(1-C)
-        alpha_flex=self.alpha*(1-self.F)
+        alpha_flex=self.alpha*(1+self.F)
         Dr=x/self.D
         wake=-(self.u-umin)*np.exp(-r**2/(2*(alpha_flex*(1+2*self.k*Dr)/(self.S/18.34))**2))
         return wake
