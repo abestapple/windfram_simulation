@@ -34,8 +34,6 @@ class flex_gauss():
         self.alpha=1.0
         self.c=0.5
         self.S=1.0
-    def Beta(self):
-        return 0.5*(1+np.sqrt(1-self.ct))/(np.sqrt(1-self.ct))
     def deficit_(self,x,r,h):
         """
          A new model for wind-turbine wakes from Dr.zhiyuan
@@ -48,7 +46,7 @@ class flex_gauss():
         wake=-(self.u-umin)*np.exp(-r**2/(2*(alpha_flex*(1+2*self.k*Dr)/(self.S/18.34))**2))
         return wake
     def wake_expansion(self,x):
-        return self.k*x+self.D
+        return self.k*x+self.D*4
 
 class Gauss():
     def __init__(self,u,D,Hub,ct,Ia,yaw,deflectionmodel,k=0.04):
