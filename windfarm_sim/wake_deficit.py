@@ -40,7 +40,7 @@ class flex_gauss():
         """
          A new model for wind-turbine wakes from Dr.zhiyuan
         """
-        r=abs(r)
+        r=abs(r)/self.D
         C=self.c*(1-np.sqrt(1-self.ct))
         umin=self.u*(1-C)
         alpha_flex=self.alpha*(1-self.F)
