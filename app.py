@@ -73,18 +73,18 @@ def check_password():
 if not check_password():  
     st.stop()
 
-st.markdown("""
-    <style>
-        .reportview-container {
-            margin-top: -2em;
-        }
-	.e8zbici0{visibility: hidden;}
-        #MainMenu {visibility: hidden;}
-        .stDeployButton {display:none;}
-        footer {visibility: hidden;}
-        #stDecoration {display:none;}
-    </style>
-""", unsafe_allow_html=True)
+#st.markdown("""
+#    <style>
+#        .reportview-container {
+#            margin-top: -2em;
+#        }
+#	.e8zbici0{visibility: hidden;}
+#        #MainMenu {visibility: hidden;}
+#        .stDeployButton {display:none;}
+#        footer {visibility: hidden;}
+#        #stDecoration {display:none;}
+#    </style>
+#""", unsafe_allow_html=True)
 
 
 
