@@ -31,7 +31,7 @@ class flex_gauss():
         self.k=k
         self.Hub=Hub
         self.F=0.8
-        self.alpha=1.0
+        self.alpha=1.6
         self.c=0.5
         self.S=1.0
     def deficit_(self,x,r,h):
