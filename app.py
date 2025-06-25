@@ -239,7 +239,7 @@ with st.sidebar:
 		with tab1:
 			option = st.selectbox(
 			'尾流模型',
-			('Bastankhah_guass','guass','guass_XA','GaussGe','flex_gauss','Jensen','Jensen_2D_k','Jensen_Gauss','Park','Park_Gauss','Modified_Park','Larsen','Frandsen','Bastankhah_yaw','QianIshihara'))
+			('Bastankhah_guass','Gauss','guass_XA','GaussGe','flex_gauss','Jensen','Jensen_2D_k','Jensen_Gauss','Park','Park_Gauss','Modified_Park','Larsen','Frandsen','Bastankhah_yaw','QianIshihara'))
 			if option=="GaussGe":
 				wakemodel=guass_Ge
 			if option=="Bastankhah_guass":
@@ -270,7 +270,7 @@ with st.sidebar:
 				wakemodel=Jensen_2D_k
 			if option=="flex_gauss":
 				wakemodel=flex_gauss
-			print(Gauss)
+			#print(Gauss)
 			option_superpos = st.selectbox(
 			'叠加模型',
 			('LinearSum', 'SquaredSum'))
@@ -485,7 +485,7 @@ if optionflow=="单风速/风向":
 	Ti=float(Ti)
 	if genre=="固定值":
 		ct=float(ct)
-		print("ww",wakemodel)
+		#print("ww",wakemodel)
 		fig,fig1=Creat(nx,ny,dx,dy,velocity,direction,Ti,turbine_sites,D,Hhub,ct,yaw,wakemodel,superpositionModel,DeflectionModel,turbulentmodel)
 	else:
 		fig,fig1=Creat_powercurver(nx,ny,dx,dy,velocity,direction,Ti,turbine_sites,D,Hhub,power_curver,yaw,wakemodel,superpositionModel,DeflectionModel,turbulentmodel)
