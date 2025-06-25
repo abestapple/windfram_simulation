@@ -485,6 +485,7 @@ if optionflow=="单风速/风向":
 	Ti=float(Ti)
 	if genre=="固定值":
 		ct=float(ct)
+		print("ww",wakemodel)
 		fig,fig1=Creat(nx,ny,dx,dy,velocity,direction,Ti,turbine_sites,D,Hhub,ct,yaw,wakemodel,superpositionModel,DeflectionModel,turbulentmodel)
 	else:
 		fig,fig1=Creat_powercurver(nx,ny,dx,dy,velocity,direction,Ti,turbine_sites,D,Hhub,power_curver,yaw,wakemodel,superpositionModel,DeflectionModel,turbulentmodel)
