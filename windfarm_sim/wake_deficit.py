@@ -24,7 +24,7 @@ class Bastankhah():
         return self.k*x+0.5*np.sqrt(self.Beta())*self.D
 
 class flex_gauss():
-    def __init__(self,u,D,Hub,ct,Ia,yaw,deflectionmodel,k=0.04):
+    def __init__(self,u,D,Hub,ct,Ia,yaw,deflectionmodel,k=0.35):
         self.u=u
         self.D=D
         self.ct=np.minimum(0.999, ct)
