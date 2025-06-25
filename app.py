@@ -270,7 +270,7 @@ with st.sidebar:
 				wakemodel=Jensen_2D_k
 			if option=="flex_gauss":
 				wakemodel=flex_gauss
-			print(wakemodel)
+			print(Gauss)
 			option_superpos = st.selectbox(
 			'叠加模型',
 			('LinearSum', 'SquaredSum'))
