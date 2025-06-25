@@ -510,7 +510,7 @@ if optionflow=="单风速/风向":
 			)
 		display_pos=list(map(lambda x: float(x[:-1])*D[turbine_id],options))
 		display_pos.sort()
-		r=np.linspace(-2*D[turbine_id],2*D[turbine_id],100)
+		r=np.linspace(-1*D[turbine_id],1*D[turbine_id],21)
 		#figc, axc = plt.subplots(figsize=(5,2))	
 		#axc.set_ylabel("Velocity Deficit",fontsize=8)
 		#figc.patch.set_facecolor('#0E1117')
@@ -532,6 +532,7 @@ if optionflow=="单风速/风向":
 				)
 				trace_all.append(trace)
 				#axc.plot(r,wakemodel(np.array(xi),r,velocity,D[turbine_id],ct),label="{}D".format(xi/D[turbine_id]),marker="o",markersize=2)
+				print(x,y)
 		else:
 			trace_all=[]
 			u_st,p_st,ct_st,_=VPCT_Turbines(turbine_sites,D,Hhub,power_curver,velocity,direction,Ti,yaw,wakemodel,superpositionModel,DeflectionModel,turbulentmodel)
