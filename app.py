@@ -528,7 +528,7 @@ if optionflow=="单风速/风向":
 					x = r/D[turbine_id],
 					y = model.deficit_(xi,r,Hhub[turbine_id])/u_st1[turbine_id],
 					mode = 'lines + markers',
-					name = '{}D'.format(xi/D[turbine_id])
+					name = '{}Ds'.format(xi/D[turbine_id])
 				)
 				trace_all.append(trace)
 				#axc.plot(r,wakemodel(np.array(xi),r,velocity,D[turbine_id],ct),label="{}D".format(xi/D[turbine_id]),marker="o",markersize=2)
