@@ -20,17 +20,17 @@ from windfarm_sim.utils_tool import plot_turbine
 import hmac  
 st.set_page_config(page_title="风电场计算",layout="wide")
 def check_password(): 
-#    st.markdown("""
-#    <style>
-#        .reportview-container {
-#            margin-top: -2em;
-#        }
-#	.e8zbici0{visibility: hidden;}
-#        #MainMenu {visibility: hidden;}
-#        .stDeployButton {display:none;}
-#        footer {visibility: hidden;}
-#        #stDecoration {display:none;}
-#    </style>""", unsafe_allow_html=True)
+    st.markdown("""
+    <style>
+        .reportview-container {
+            margin-top: -2em;
+        }
+	.e8zbici0{visibility: hidden;}
+        #MainMenu {visibility: hidden;}
+        .stDeployButton {display:none;}
+        footer {visibility: hidden;}
+        #stDecoration {display:none;}
+    </style>""", unsafe_allow_html=True)
     def login_form(): 
 	#st.set_page_config(page_title="风电场计算",layout="wide")
         col0,col1, col2 = st.columns([0.25,0.5,0.25]) 
@@ -73,18 +73,18 @@ def check_password():
 if not check_password():  
     st.stop()
 
-#st.markdown("""
-#    <style>
-#        .reportview-container {
-#            margin-top: -2em;
-#        }
-#	.e8zbici0{visibility: hidden;}
-#        #MainMenu {visibility: hidden;}
-#        .stDeployButton {display:none;}
-#        footer {visibility: hidden;}
-#        #stDecoration {display:none;}
-#    </style>
-#""", unsafe_allow_html=True)
+st.markdown("""
+    <style>
+        .reportview-container {
+            margin-top: -2em;
+        }
+	.e8zbici0{visibility: hidden;}
+        #MainMenu {visibility: hidden;}
+        .stDeployButton {display:none;}
+        footer {visibility: hidden;}
+        #stDecoration {display:none;}
+    </style>
+""", unsafe_allow_html=True)
 
 
 
