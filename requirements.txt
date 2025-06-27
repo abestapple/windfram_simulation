@@ -2,7 +2,7 @@ streamlit==1.46.1
 matplotlib==3.5.3
 numpy==1.23.0
 pandas==1.4.0
-scipy==1.16.0
+scipy==1.13.1
 streamlit-aggrid==0.3.4.post3
 xmltodict==0.13.0
 plotly==5.14.1
