@@ -343,7 +343,7 @@ with st.sidebar:
 			#gb.configure_pagination(paginationAutoPageSize=True)
 			#gridOptions = gb.build()
 			#grid_return = AgGrid(df, grid_options,theme="streamlit")
-			new_df = grid_return["data"]
+			#new_df = grid_return["data"]
 			st.session_state["df"]=new_df
 
 
