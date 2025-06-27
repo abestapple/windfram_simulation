@@ -333,15 +333,16 @@ with st.sidebar:
 			else:
 				pass
 			df = pd.DataFrame({"X": st.session_state["x"], "Y": st.session_state["y"],"D": st.session_state["d"],"H": st.session_state["H"],"Yaw": st.session_state["yaw"]})
-			gb = GridOptionsBuilder.from_dataframe(df)
-			selection_mode = 'single' # 定义单选模式，多选为'multiple'
-			enable_enterprise_modules = True 
-			gb.configure_selection(selection_mode, use_checkbox=True) # 定义use_checkbox
-			gb.configure_side_bar()
-			gb.configure_grid_options(domLayout='normal')
-			gb.configure_pagination(paginationAutoPageSize=True)
-			gridOptions = gb.build()
-			grid_return = AgGrid(df, grid_options,theme="streamlit")
+			new_df = st.data_editor(df,use_container_width=True, num_rows="dynamic")
+			#gb = GridOptionsBuilder.from_dataframe(df)
+			#selection_mode = 'single' # 定义单选模式，多选为'multiple'
+			#enable_enterprise_modules = True 
+			#gb.configure_selection(selection_mode, use_checkbox=True) # 定义use_checkbox
+			#gb.configure_side_bar()
+			#gb.configure_grid_options(domLayout='normal')
+			#gb.configure_pagination(paginationAutoPageSize=True)
+			#gridOptions = gb.build()
+			#grid_return = AgGrid(df, grid_options,theme="streamlit")
 			new_df = grid_return["data"]
 			st.session_state["df"]=new_df
 
