@@ -333,7 +333,7 @@ with st.sidebar:
 			else:
 				pass
 			df = pd.DataFrame({"X": st.session_state["x"], "Y": st.session_state["y"],"D": st.session_state["d"],"H": st.session_state["H"],"Yaw": st.session_state["yaw"]})
-			new_df = st.data_editor(df,use_container_width=False, num_rows="dynamic")
+			new_df = st.data_editor(df,use_container_width=False, hide_index=True, num_rows="dynamic")
 			#gb = GridOptionsBuilder.from_dataframe(df)
 			#selection_mode = 'single' # 定义单选模式，多选为'multiple'
 			#enable_enterprise_modules = True 
