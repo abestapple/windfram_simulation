@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 import random
-from st_aggrid import AgGrid,GridOptionsBuilder
+#from st_aggrid import AgGrid,GridOptionsBuilder
 import matplotlib.ticker as ticker
 import math
 import plotly.graph_objs as go
